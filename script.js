@@ -66,16 +66,45 @@ let appData = {
     },
     chooseIncome: function(){
         let items = prompt("Что принесет доп доход? (Пречислите через запятую)", '');
-        appData.income = items.split(', ');
-        appData.income.push(prompt('Может что нибудь еще?',''));
-        appData.income.sort();
+
+        if ((typeof(items)) == null || items == '')  {
+            console.log("Вы не можете оставить строку пустой");
+            this.chooseIncome();
+        } else if (!/^[a-zA-Zа-яА-Я]+$/.test(items)){
+            console.log("Вы не можете ");
+            this.chooseIncome();
+        } else{
+            console.log("EEEEEEEEEEEEEEEEEE");
+            appData.income = items.split(", ");
+            appData.income.push(prompt("Может что-то еще?"));
+            appData.income.sort();
+            
+        }
+
+        appData.income.forEach(function(itemmassive, i){
+            alert("Способы доп. заработка: " + (i+1) + ' : ' + itemmassive);
+        })
+
+
+        // if ( (typeof(items)) !== 'string' || (typeof(items)) == null || items == ''){
+        //     console.log("Вы не можете оставить строку пустой");
+        // } else{
+        //     appData.income = items.split(", ");
+        //     appData.income.push(prompt("Может что-то еще?"));
+        //     appData.income.sort();
+        // }
+
     }
 };
 
+//(typeof(items)) !== 'string'
+appData.chooseIncome();
 
 
 
-
+for (let key in appData){
+    console.log("Наша программа включает в себя данные: " + key + ' : ' + appData[key])
+}
 
 
 // let i = 0;
