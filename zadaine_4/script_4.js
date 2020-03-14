@@ -78,6 +78,16 @@
 //     i = arr.sort();
 // console.log(arr);
 
+function hello(){
+    console.log("HelloWorld!");
+}
+hello();
+
+function hi(){
+    console.log("HelloWorld!");
+}
+hi();
+
 let arr = ["4", '15', '1', '42'],
     i = arr.sort(compareNum);
 
@@ -87,16 +97,16 @@ function compareNum(a,b){
 
 console.log(arr);
 
-let soldier = {
-    health: 400,
-    armor: 100
-};
+// let soldier = {
+//     health: 400,
+//     armor: 100
+// };
 
-let john = {
-    health: 100
-};
+// let john = {
+//     health: 100
+// };
 
-john.__proto__ = soldier;
+// john.__proto__ = soldier;
 
-console.log(john);
-console.log(john.armor);
+// console.log(john);
+// console.log(john.armor);
