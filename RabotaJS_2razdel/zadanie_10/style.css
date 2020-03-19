@@ -1,0 +1,16 @@
+button{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.box{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    max-width: 400px;
+    max-height: 350px;
+    overflow: scroll;
+    margin: 0 auto;
+    padding: 10px;
+}

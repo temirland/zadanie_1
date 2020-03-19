@@ -35,4 +35,71 @@ window.addEventListener('DOMContentLoaded', function(){    // начать ср�
         }
     });
 
+    // Timer
+
+    let deadline = '2020-03-19';
+
+    function getTimeRemaining(endtime){
+        let t = Date.parse(endtime) - Date.parse(new Date()),      // parse превращает любую дату в кол-во миллисекунд. new Date - время прямо сейчас
+            seconds = Math.floor((t/1000) % 60),  // Math.floor() - получаем только целы числа
+            minutes = Math.floor((t/1000/60) % 60),
+            hours = Math.floor((t/(1000*60*60)));
+            // hours = Math.floor((t/1000/60/60) % 24),
+            // days = Math.floor((t/(1000*60*60*24)));
+
+            return{             // создаем новый объект return
+                'total' : t,
+                'hours' : hours,
+                'minutes' : minutes,
+                'seconds' : seconds
+            };
+
+
+    }
+
+
+    function setClock(id, endtime){
+        let timer = document.getElementById(id),
+            hours = timer.querySelector('.hours'),
+            minutes = timer.querySelector('.minutes'),
+            seconds = timer.querySelector('.seconds'),
+            timeInterval = setInterval(updateClock, 1000);
+        
+
+        function updateClock(){
+            let t = getTimeRemaining(endtime);
+            if (t.hours < 10 && t.hours > 0){
+                hours.textContent = '0' + t.hours;
+            }else if(t.hours <= 0){
+                hours.textContent = '00';
+            }else{
+                hours.textContent = t.hours;
+            }
+
+            if (t.minutes < 10 && t.minutes > 0){
+                minutes.textContent = '0' + t.minutes;
+            }else if(t.minutes <= 0){
+                minutes.textContent = '00';
+            }else{
+                minutes.textContent = t.minutes;
+            }
+
+            if (t.seconds < 10 && t.seconds > 0){
+                seconds.textContent = '0' + t.seconds;
+            }else if(t.seconds <= 0){
+                seconds.textContent = '00';
+            }else{
+                seconds.textContent = t.seconds;
+            }
+
+            console.log(t.hours);
+            if (t.total <= 0){
+                clearInterval(timeInterval);
+            }
+
+        }
+        
+    }
+
+    setClock('timer', deadline);
 });
