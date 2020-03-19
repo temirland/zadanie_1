@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+
+.info{
+    margin-top: 30px;
+}
+
+.info-tab{
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    
+}
+
+.info-header-tab{
+    padding: 5px;
+    background-color: #dfcdce;
+    cursor: pointer;
+}
+
+.info-descr{
+    display: flex;
+    background-color: #ccc;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+
+
+
+.show{
+    display: flex;
+}
+
+.hide{
+    display: none;
+}
