@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', function(){    // начать ср�
 
     // Timer
 
-    let deadline = '2020-03-19';
+    let deadline = '2020-04-01';
 
     function getTimeRemaining(endtime){
         let t = Date.parse(endtime) - Date.parse(new Date()),      // parse превращает любую дату в кол-во миллисекунд. new Date - время прямо сейчас
@@ -92,7 +92,6 @@ window.addEventListener('DOMContentLoaded', function(){    // начать ср�
                 seconds.textContent = t.seconds;
             }
 
-            console.log(t.hours);
             if (t.total <= 0){
                 clearInterval(timeInterval);
             }
@@ -102,4 +101,32 @@ window.addEventListener('DOMContentLoaded', function(){    // начать ср�
     }
 
     setClock('timer', deadline);
+
+    // Modal
+
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close'),
+        descriptionBtn = document.querySelector('.description-btn');
+
+    function knowMoreBtn(btnClass){
+        btnClass.addEventListener('click', function(){
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
+        });
+
+        close.addEventListener('click', function(){
+            overlay.style.display = 'none';
+            more.classList.remove('more-splash');
+            document.body.style.overflow = '';
+        });
+    }
+
+    knowMoreBtn(more);
+    knowMoreBtn(descriptionBtn);
+
+    
+
+
 });
